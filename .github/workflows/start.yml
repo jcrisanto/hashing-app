@@ -29,7 +29,7 @@ jobs:
         run: cd backend && npm i
 
       - name: Run Unit Tests
-        run: export MY_TEST_VAR=this is a test && npm t
+        run: export MY_TEST_VAR=this is a test && cd backend && npm t
 
   sample-step:
     runs-on: ubuntu-latest
