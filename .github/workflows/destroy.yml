@@ -1,4 +1,4 @@
-name: My First Manual Workflow
+name: Continuous Delivery (Destroy)
 on: [workflow_dispatch]
 jobs:
   deploy:
@@ -23,4 +23,5 @@ jobs:
       - name: Create infrastructure in AWS
         run: |
           cd terraform/aws 
+          terraform init
           terraform destroy  -auto-approve
