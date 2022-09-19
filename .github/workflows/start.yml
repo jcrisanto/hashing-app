@@ -38,6 +38,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
         with:
@@ -58,6 +63,7 @@ jobs:
           terraform apply -auto-approve
           export REACT_APP_API_HOST=$(terraform output ec2_public_ip | xargs)
           export BUCKET_NAME=$(terraform output bucket_name | xargs)
+          echo $BUCKET_NAME
           cd ../../frontend
           npm i --force
           npm run build
