@@ -4,7 +4,6 @@
   remote_user: ubuntu
 
   tasks:
-  - name: Ensure apache is at the latest version
-    ansible.builtin.yum:
-      name: httpd
-      state: latest
+  - name: clone repository
+    command:
+      cmd: git clone https://github.com/jcrisanto/hashing-app.git
