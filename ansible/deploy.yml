@@ -5,10 +5,13 @@
 
   tasks:
   - name: clone repository
-    shell: |
-        git clone https://github.com/jcrisanto/hashing-app.git
-        curl -s https://deb.nodesource.com/setup_16.x | sudo bash
-        sudo apt install nodejs -y
-        cd hashing-app/backend
-        npm install pm2 -g
-        npm i && pm2 start src/start.js
+    shell: "git clone https://github.com/jcrisanto/hashing-app.git"
+
+  - name: add node repository
+    shell: "curl -s https://deb.nodesource.com/setup_16.x | sudo bash && sudo apt install nodejs -y"
+
+  - name: install pm2
+    shell: "cd hashing-app/backend && npm install pm2 -g"
+
+  - name: run server
+    shell: "npm i && pm2 start src/start.js"
