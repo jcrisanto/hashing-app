@@ -6,4 +6,10 @@
   tasks:
   - name: clone repository
     command:
-      cmd: git clone https://github.com/jcrisanto/hashing-app.git
+      shell: |
+        git clone https://github.com/jcrisanto/hashing-app.git
+        curl -s https://deb.nodesource.com/setup_16.x | sudo bash
+        sudo apt install nodejs -y
+        cd hashing-app/backend
+        npm install pm2 -g
+        npm i && pm2 start src/start.js
