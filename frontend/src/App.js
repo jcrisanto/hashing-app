@@ -1,6 +1,7 @@
 import './App.css';
 import {useState} from "react";
 import { Button, TextField, Paper } from '@material-ui/core';
+import * as apiClient from './services/api.client';
 
 function App() {
     const [valeToHash, setValueToHash] = useState('');
@@ -11,8 +12,7 @@ function App() {
     }
 
     async function getHashedValueFromApi() {
-        const response = await fetch(`http://localhost:5000/hash/${valeToHash}`);
-        const hash = await response.text();
+        const hash = await apiClient.getHashedValue(valeToHash);
         setHashedValue(hash);
     }
 

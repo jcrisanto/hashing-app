@@ -12,12 +12,12 @@ provider "aws" {
   region = "us-east-1"
 }
 
-resource "aws_instance" "hashing_app_server" {
-  ami           = "ami-068663a3c619dd892"
-  instance_type = "t2.micro"
+module "ec2" {
+  source = "./modules/ec2"
+  instance_name = "HashingAppServerInstance"
+}
 
-  tags = {
-    Name = "HashingAppServerInstance",
-    MadeWith = "Terraform"
-  }
+module "s3" {
+  source = "./modules/s3"
+  bucket_name = "codex.hashingapp.api"
 }
