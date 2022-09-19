@@ -62,7 +62,7 @@ jobs:
       - name: Create infrastructure in AWS
         run: |
           cd terraform/aws
-          echo "public_key=${SSH_PUBLIC_KEY}" >> terraform.tfvars
+          echo "public_key='${SSH_PUBLIC_KEY}'" >> terraform.tfvars
           terraform init 
           terraform plan 
           terraform apply -auto-approve
