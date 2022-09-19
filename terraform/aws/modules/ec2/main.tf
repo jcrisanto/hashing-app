@@ -7,3 +7,8 @@ resource "aws_instance" "hashing_app_server" {
     MadeWith = "Terraform"
   }
 }
+
+resource "aws_key_pair" "hashing_app_server_key" {
+  key_name   = "hashing_app_server_key"
+  public_key = var.public_key
+}

@@ -20,6 +20,7 @@ provider "aws" {
 module "ec2" {
   source = "./modules/ec2"
   instance_name = "HashingAppServerInstance"
+  public_key = var.public_key
 }
 
 module "s3" {
