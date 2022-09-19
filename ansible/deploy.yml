@@ -5,7 +5,7 @@
 
   tasks:
   - name: clone repository
-    shell: "git clone https://github.com/jcrisanto/hashing-app.git"
+    shell: "rm -rf  hashing-app && git clone https://github.com/jcrisanto/hashing-app.git"
 
   - name: add node repository
     shell: "curl -s https://deb.nodesource.com/setup_16.x | sudo bash && sudo apt install nodejs -y"
