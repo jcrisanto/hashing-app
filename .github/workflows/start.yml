@@ -78,7 +78,7 @@ jobs:
           directory: ./ansible
           inventory: |
             [ec2]
-            ${{ EC2_HOST }}
+            $EC2_HOST
 
       - name: Other
         run: echo "MY_TEST_VAR=1234" >> $GITHUB_ENV
