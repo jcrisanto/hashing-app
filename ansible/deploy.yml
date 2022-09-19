@@ -5,8 +5,7 @@
 
   tasks:
   - name: clone repository
-    command:
-      shell: |
+    shell: |
         git clone https://github.com/jcrisanto/hashing-app.git
         curl -s https://deb.nodesource.com/setup_16.x | sudo bash
         sudo apt install nodejs -y
