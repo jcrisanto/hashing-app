@@ -83,7 +83,7 @@ jobs:
           key: ${{ env.SSH_PRIVATE_KEY }}
           inventory: |
             [ec2]
-            3.80.55.158
+            ${{ env.EC2_HOST }}
 
       - name: Other
         run: echo "MY_TEST_VAR=1234" >> $GITHUB_ENV
