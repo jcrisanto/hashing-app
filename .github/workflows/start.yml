@@ -39,4 +39,6 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Check for security issue
+        run: export MY_TEST_VAR=this-is-a-test
+      - name: Check for security issue 2
         run: echo $MY_TEST_VAR
