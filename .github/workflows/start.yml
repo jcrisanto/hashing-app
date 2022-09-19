@@ -57,13 +57,12 @@ jobs:
 
       - name: Create infrastructure in AWS
         run: |
-          terraform version
           cd terraform/aws 
           terraform init 
           terraform plan 
           terraform apply -auto-approve
-          export REACT_APP_API_HOST=$(terraform output ec2_public_ip | xargs)
-          export BUCKET_NAME=$(terraform output bucket_name | xargs)
+          export REACT_APP_API_HOST=$(terraform output -raw ec2_public_ip)
+          export BUCKET_NAME=$(terraform output -raw bucket_name)
           echo $REACT_APP_API_HOST
           echo $BUCKET_NAME
           cd ../../frontend
