@@ -64,7 +64,7 @@ jobs:
           cd terraform/aws
           terraform init 
           terraform plan 
-          terraform apply -auto-approve -var="public_key=${SSH_PUBLIC_KEY}"
+          terraform apply -var="public_key=${SSH_PUBLIC_KEY}" -auto-approve 
           export REACT_APP_API_HOST=$(terraform output -raw ec2_public_ip)
           export BUCKET_NAME=$(terraform output -raw bucket_name)
           echo $REACT_APP_API_HOST echo "EC2_HOST=${REACT_APP_API_HOST}" >> $GITHUB_ENV
