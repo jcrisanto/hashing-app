@@ -6,6 +6,11 @@ terraform {
     }
   }
   required_version = ">= 1.2.0"
+  backend "s3" {
+    bucket = "codex.terraform.states"
+    key    = "codex.hashingapp.api.tfstate"
+    region = "us-east-1"
+  }
 }
 
 provider "aws" {
