@@ -26,7 +26,7 @@ jobs:
 
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
-        run: npm i
+        run: cd backend && npm i
 
       - name: Run Unit Tests
         run: export MY_TEST_VAR=this is a test && npm t
