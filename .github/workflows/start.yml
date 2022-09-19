@@ -59,6 +59,7 @@ jobs:
           export REACT_APP_API_HOST=$(terraform output ec2_public_ip | xargs)
           export BUCKET_NAME=$(terraform output bucket_name | xargs)
           cd ../../frontend
+          npm i
           npm run build
           aws s3 cp build s3://$BUCKET_NAME --region=us-east-1 --recursive
 
